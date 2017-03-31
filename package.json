@@ -8,7 +8,9 @@
   "main": "package.json",
   "keywords": [
     "sanity",
-    "vega"
+    "vega",
+    "frontend",
+    "example"
   ],
   "repository": {
     "type": "git",
@@ -23,7 +25,6 @@
   },
   "dependencies": {
     "@sanity/client": "^0.104.23",
-    "block-content-adaptor": "file:///Users/pk101/Development/code/sanity-io/block-content-adapter",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0"
   },
