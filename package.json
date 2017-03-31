@@ -1,0 +1,37 @@
+{
+  "name": "vega-example-frontend-classic-js",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Example frontend for Vega written as a classic node app",
+  "author": "Bengler AS <hello@bengler.no>",
+  "license": "MIT",
+  "main": "package.json",
+  "keywords": [
+    "sanity",
+    "vega"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:VegaPublish/example-frontend-classic-js.git"
+  },
+  "scripts": {
+    "start": "node ./src/index.js",
+    "develop": "nodemon ./src/index.js"
+  },
+  "engines" : {
+    "node" : ">=6.5.0"
+  },
+  "dependencies": {
+    "@sanity/client": "^0.104.23",
+    "block-content-adaptor": "file:///Users/pk101/Development/code/sanity-io/block-content-adapter",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "nodemon": "^1.11.0"
+  }
+}

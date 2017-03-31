@@ -1,0 +1,8 @@
+<h2>{{fullIssueTitle issue}}</h2>
+
+{{#if issue.coverImage}}
+  <img class='issue-list-item-image' src='{{issue.coverImage.asset.url}}' />
+{{/if}}
+
+<h3>Content</h3>
+{{> issues/contentList}}

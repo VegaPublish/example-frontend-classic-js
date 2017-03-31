@@ -1,0 +1,27 @@
+
+.issue-list {
+  padding: 0;
+  margin: 0;
+}
+
+.issue-list-item {
+  list-style: none;
+}
+
+.issue-list-item-container {
+  display: flex;
+}
+
+.issue-list-item-title-container {
+  flex: 1;
+}
+
+.issue-list-item-image-container {
+  flex: 1;
+  max-width: 100px;
+  margin-right: 1em;
+}
+
+.issue-list-item-image {
+  width: 100px;
+}
