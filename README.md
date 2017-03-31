@@ -7,7 +7,7 @@ An example frontend for Vega implemented as a classic Node.js web app without an
 The idea is to provide a simple codebase where only basic knowledge to Javascript and HTML is needed to customize and get a journal up and running in no time.
 
 * Node 6.5
-* ES Lint
+* ESLint
 * Express server
 * Templating with HTML-like Handlebars
 * Plain Javascript and CSS for the browser without any bundling and transforms.
