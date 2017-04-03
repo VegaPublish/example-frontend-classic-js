@@ -13,3 +13,7 @@ exports.fullIssueTitle = issue => {
 exports.moment = (date, format) => {
   return moment(date).format(format)
 }
+
+exports.dateTime = (date) => {
+  return moment(date).calendar()
+}
