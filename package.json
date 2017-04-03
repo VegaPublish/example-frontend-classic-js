@@ -20,13 +20,15 @@
     "start": "node ./src/index.js",
     "develop": "nodemon ./src/index.js"
   },
-  "engines" : {
-    "node" : ">=6.5.0"
+  "engines": {
+    "node": ">=6.5.0"
   },
   "dependencies": {
     "@sanity/client": "^0.104.23",
     "express": "^4.15.2",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "postcss-cssnext": "^2.10.0",
+    "postcss-middleware": "^1.1.3"
   },
   "devDependencies": {
     "eslint": "^3.18.0",

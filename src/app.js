@@ -1,4 +1,8 @@
 const express = require('express')
+const path = require('path')
+const postcssMiddleware = require('postcss-middleware')
+const postcssNext = require('postcss-cssnext')
+
 const expressHandlebars = require('express-handlebars')
 const routes = require('./routes')
 const viewHelpers = require('./lib/viewHelpers')
@@ -19,7 +23,17 @@ app.set('views', './src/views')
 // Static folder
 app.use(express.static('src/static'))
 
-// Wire up routes
+// Post CSS middleware
+app.use('/css', postcssMiddleware(
+  {
+    src: req => {
+      return path.join('src', 'styles', req.path)
+    },
+    plugins: [postcssNext]
+  })
+)
+
+// Wire up our own routes
 app.use('/', routes.home)
 app.use('/issues', routes.issues)
 
