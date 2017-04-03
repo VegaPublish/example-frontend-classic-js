@@ -1,0 +1,12 @@
+<ul class="article-grid">
+  {{#each articles}}
+    <li class="article-grid__item">
+      <div class="article-grid__image-container">
+        <img src="{{{mainImage.asset.url}}}" />
+      </div>
+      <div class="article-grid__title">
+        {{{title}}}
+      </div>
+    </li>
+  {{/each}}
+</ul>
