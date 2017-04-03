@@ -40,5 +40,6 @@ app.use('/css', postcssMiddleware(
 // Wire up our own routes
 app.use('/', routes.home)
 app.use('/issues', routes.issues)
+app.use('/article', routes.article)
 
 module.exports = app

@@ -1,0 +1,13 @@
+.article-page {
+    &__meta {
+      font-size: 0.7em;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 1em 0;
+    }
+
+    &__abstract {
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+}

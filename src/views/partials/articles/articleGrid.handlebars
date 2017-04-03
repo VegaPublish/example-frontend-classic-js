@@ -1,12 +1,21 @@
 <ul class="article-grid">
   {{#each articles}}
     <li class="article-grid__item">
-      <div class="article-grid__image-container">
-        <img src="{{{mainImage.asset.url}}}" />
-      </div>
-      <div class="article-grid__title">
-        {{{title}}}
-      </div>
+      <a href="/article/{{{_id}}}"class="article-grid__link">
+
+        <div class="article-grid__image-container">
+          <img lass="article-grid__image" src="{{{mainImage.asset.url}}}" />
+        </div>
+        <div class="article-grid__text">
+          <div class="article-grid__issue">
+            ISSUE
+            <div class="article-grid__issue-title">{{{issueTitle}}}</div>
+          </div>
+          <div class="article-grid__title">
+            {{{title}}}
+          </div>
+        </div>
+      </a>
     </li>
   {{/each}}
 </ul>

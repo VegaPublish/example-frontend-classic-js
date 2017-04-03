@@ -27,6 +27,7 @@
     "@sanity/client": "^0.104.23",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
+    "lodash": "^4.17.4",
     "postcss-cssnext": "^2.10.0",
     "postcss-middleware": "^1.1.3"
   },

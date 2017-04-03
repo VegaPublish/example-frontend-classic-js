@@ -9,8 +9,19 @@ module.exports = (function () {
       htmlTitle: config.app.title,
       articles: []
     }
-    articleStore.getArticles()
-      .then(articles => {
+    articleStore.getAllArticlesFromIssues()
+      .then(issues => {
+        const articles = []
+
+        issues.map(function (issue) {
+          issue.content.map(function (content) {
+            content.articles.map(function (article) {
+              article.issueTitle = issue.title
+              articles.push(article)
+            })
+          })
+        })
+
         context.articles = articles
         res.render('home', context)
       })
