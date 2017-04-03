@@ -1,0 +1,22 @@
+html, body {
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+}
+
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+.content {
+  padding: 0 1rem;
+}
+
+.error-message-container {
+  background: #eee;
+  padding: 1rem;
+}

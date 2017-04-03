@@ -1,12 +1,12 @@
 <ul class='issue-list'>
   {{#each issues}}
     <li class='issue-list-item'>
-      <a href='/issues/{{_id}}/' class='issue-list-item-link'>
-        <div class='issue-list-item-container'>
-          <div class='issue-list-item-image-container'>
-            <img class='issue-list-item-image' src='{{coverImage.asset.url}}' />
+      <a href='/issues/{{_id}}/' class='issue-list-item__link'>
+        <div class='issue-list-item__container'>
+          <div class='issue-list-item__image-container'>
+            <img class='issue-list-item__image' src='{{coverImage.asset.url}}' />
           </div>
-          <div class='issue-list-item-title-container'>
+          <div class='issue-list-item__title-container'>
             <h3>{{fullIssueTitle .}}</h3>
           </div>
         </div>

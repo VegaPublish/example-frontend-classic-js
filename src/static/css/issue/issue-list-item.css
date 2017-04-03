@@ -1,0 +1,21 @@
+.issue-list-item {
+  list-style: none;
+}
+
+.issue-list-item__container {
+  display: flex;
+}
+
+.issue-list-item__title-container {
+  flex: 1;
+}
+
+.issue-list-item__image-container {
+  flex: 1;
+  max-width: 100px;
+  margin-right: 1em;
+}
+
+.issue-list-item__image {
+  width: 100px;
+}
