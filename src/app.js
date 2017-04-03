@@ -12,14 +12,15 @@ const viewHelpers = require('./lib/viewHelpers')
 const app = express()
 
 // Set up handlebars as view engine
-app.engine('handlebars', expressHandlebars({
+const handlebarsEngine = expressHandlebars({
   defaultLayout: 'main',
   layoutsDir: './src/views/layouts',
   partialsDir: [
     './src/views/partials'
   ],
   helpers: viewHelpers
-}))
+})
+app.engine('handlebars', handlebarsEngine)
 app.set('view engine', 'handlebars')
 app.set('views', './src/views')
 
