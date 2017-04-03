@@ -11,7 +11,8 @@ The idea is to provide a simple codebase where only basic knowledge to Javascrip
 * Node 6.5
 * Express server
 * Templating with HTML-like Handlebars
-* Plain Javascript and CSS for the browser without any bundling and transforms.
+* Styling with PostCSS / PostCSS Next
+* Plain Javascript for the browser/client without any bundling and transforms.
 * ESLint for code quality control
 
 Advanced users would probably want something like React, Browserify/Webpack, Babel etc, but this example will keep it as simple as possible.
