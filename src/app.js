@@ -1,11 +1,14 @@
-const express = require('express')
 const path = require('path')
+
+const express = require('express')
+const expressHandlebars = require('express-handlebars')
+
 const postcssMiddleware = require('postcss-middleware')
 const postcssNext = require('postcss-cssnext')
 
-const expressHandlebars = require('express-handlebars')
 const routes = require('./routes')
 const viewHelpers = require('./lib/viewHelpers')
+
 const app = express()
 
 // Set up handlebars as view engine
@@ -23,7 +26,7 @@ app.set('views', './src/views')
 // Static folder
 app.use(express.static('src/static'))
 
-// Post CSS middleware
+// PostCSS middleware with PostCSSNext plugin
 app.use('/css', postcssMiddleware(
   {
     src: req => {
