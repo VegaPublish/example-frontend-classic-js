@@ -1,3 +1,4 @@
+const moment = require('moment')
 const config = require('../config')
 
 exports.journalTitle = () => {
@@ -6,4 +7,9 @@ exports.journalTitle = () => {
 
 exports.fullIssueTitle = issue => {
   return `Issue ${issue.volume}.${issue.number} - ${issue.title} (${issue.year})`
+}
+
+
+exports.moment = (date, format) => {
+  return moment(date).format(format)
 }
