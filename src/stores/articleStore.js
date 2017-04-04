@@ -11,6 +11,7 @@ module.exports = {
         articles{
           _id,
           title,
+          authors{...},
           mainImage{
             asset{
               url
@@ -39,6 +40,13 @@ module.exports = {
     const query = `
       *[_id == "${id}"]{
         ...,
+        authors{
+          name,
+          profileImage{
+            ...,
+            asset{...}
+          }
+        },
         mainImage{
           asset{url}
         }

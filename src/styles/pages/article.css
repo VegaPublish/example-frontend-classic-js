@@ -1,4 +1,18 @@
 .article-page {
+    lost-utility: clearfix;
+
+    &__primary-content {
+      lost-column: 3/4 0;
+    }
+
+    &__secondary-content {
+      lost-column: 1/4 0;
+    }
+
+    &__title {
+      font-family: "Playfair Display";
+    }
+
     &__meta {
       font-size: 0.7em;
       border-top: 1px solid #ccc;
@@ -6,8 +20,12 @@
       padding: 1em 0;
     }
 
+    &__authors {
+      border: 1px solid red;
+    }
+
     &__abstract {
-      font-size: 1.2em;
+      font-family: "Playfair Display";
       line-height: 1.5em;
     }
 }

@@ -2,19 +2,29 @@
   {{#each articles}}
     <li class="article-grid__item">
       <a href="/article/{{{_id}}}"class="article-grid__link">
-
+        <div class="article-grid__meta">
+          <span class="article-grid__meta__title">ARTICLE</span>
+          <span class="article-grid__meta__date">{{{dateTime _createdAt}}}</span>
+        </div>
         <div class="article-grid__image-container">
           <img lass="article-grid__image" src="{{{mainImage.asset.url}}}" />
         </div>
-        <div class="article-grid__text">
-          <div class="article-grid__issue">
-            ISSUE
-            <div class="article-grid__issue-title">{{{issueTitle}}}</div>
-          </div>
-          <div class="article-grid__title">
-            {{{title}}}
-          </div>
+
+        <div class="article-grid__title">
+          {{{title}}}
         </div>
+
+        <div class="article-grid__abstract">
+          {{{abstract}}}
+        </div>
+
+
+        <div class="article-grid__authors">
+          {{#each authors}}
+            <span class="article-grid__author">{{{name}}}</span>
+          {{/each}}
+        </div>
+
       </a>
     </li>
   {{/each}}

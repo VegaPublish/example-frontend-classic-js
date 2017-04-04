@@ -1,3 +1,17 @@
 <div class="home">
-  {{> articles/articleGrid}}
+  <div class="home__primary-content">
+    {{#each articlesInIssueBlocks}}
+      <div class="home__issue">
+        <div class="home__issue-pre-title">Issue</div>
+        <h2 class="home__issue-title">{{{title}}}</h2>
+        <div class="home__articles">
+          {{> articles/articleGrid}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="home__secondary-content">
+    issues go here
+  </div>
+
 </div>

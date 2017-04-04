@@ -27,6 +27,7 @@ module.exports = (function () {
           return
         }
         context.article = article[0]
+        console.log('article', context.article)
         context.htmlTitle = `${config.app.title} - ${article.title}`
         console.log(article)
         res.render('article', context)

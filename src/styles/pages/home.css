@@ -1,3 +1,32 @@
 .home {
   margin: 1em 0;
+  lost-utility: clearfix;
+
+  &__primary-content {
+    lost-column: 3/4 3;
+  }
+
+  &__secondary-content {
+    lost-column: 1/4 0;
+  }
+
+
+
+  &__issue {
+    clear: both;
+  }
+
+  &__issue-pre-title {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-top: 1rem;
+  }
+
+  &__issue-title {
+    clear: both;
+    font-family: "Playfair Display";
+    border-bottom: 1px solid #000;
+    margin-top: 0;
+  }
 }

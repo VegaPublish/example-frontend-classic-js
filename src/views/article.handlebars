@@ -1,7 +1,22 @@
-<h1 class="article-page__title">{{{article.title}}}</h1>
-<p class="article-page__abstract">
-  {{{article.abstract}}}
-</p>
-<p class="article-page__meta">
-  Created {{{dateTime article._createdAt}}} Updated: {{{dateTime article._updatedAt}}}
-</p>
+<div class="article-page">
+  <h1 class="article-page__title">{{{article.title}}}</h1>
+  <div class="article-page__meta">
+    Created {{{dateTime article._createdAt}}} Updated: {{{dateTime article._updatedAt}}}
+    <ul class="article-page__authors">
+      {{#each article.authors}}
+        <li>
+          <img src="{{{profileImage.asset.url}}}" />
+          {{{name}}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="article-page__secondary-content">
+    TOC here
+  </div>
+  <div class="article-page__primary-content">
+    <d class="article-page__abstract">
+      {{{article.abstract}}}
+    </p>
+  </div>
+</div>

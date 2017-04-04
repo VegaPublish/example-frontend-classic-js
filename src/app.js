@@ -5,6 +5,7 @@ const expressHandlebars = require('express-handlebars')
 
 const postcssMiddleware = require('postcss-middleware')
 const postcssNext = require('postcss-cssnext')
+const lost = require('lost')
 
 const routes = require('./routes')
 const viewHelpers = require('./lib/viewHelpers')
@@ -33,7 +34,7 @@ app.use('/css', postcssMiddleware(
     src: req => {
       return path.join('src', 'styles', req.path)
     },
-    plugins: [postcssNext]
+    plugins: [lost, postcssNext]
   })
 )
 

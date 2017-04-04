@@ -7,22 +7,21 @@ module.exports = (function () {
   router.get('/', function (req, res) {
     const context = {
       htmlTitle: config.app.title,
-      articles: []
+      articlesInIssueBlocks: []
     }
+
     articleStore.getAllArticlesFromIssues()
       .then(issues => {
-        const articles = []
-
-        issues.map(function (issue) {
-          issue.content.map(function (content) {
-            content.articles.map(function (article) {
-              article.issueTitle = issue.title
-              articles.push(article)
+        context.articlesInIssueBlocks = issues.map(function (issue) {
+          issue.articles = []
+          issue.content.forEach(function (content) {
+            content.articles.forEach(function (article) {
+              issue.articles.push(article)
             })
           })
+          return issue
         })
 
-        context.articles = articles
         res.render('home', context)
       })
   })
