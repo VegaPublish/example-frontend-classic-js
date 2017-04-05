@@ -1,6 +1,17 @@
 .home {
-  margin: 1em 0;
   lost-utility: clearfix;
+
+  &__top {
+    clear: both;
+    background-size: 100% auto;
+    background-color: #000;
+    color: #fff;
+    padding: 5em;
+  }
+
+  &__top-content {
+    lost-center: 980px;
+  }
 
   &__primary-content {
     lost-column: 3/4 3;
@@ -10,7 +21,10 @@
     lost-column: 1/4 0;
   }
 
-
+  &__center {
+    margin: 1em 0;
+    lost-center: 980px;
+  }
 
   &__issue {
     clear: both;

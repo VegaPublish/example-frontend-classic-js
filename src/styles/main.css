@@ -1,6 +1,7 @@
 @import "layout/layout.css";
 @import "layout/header.css";
 @import "layout/navigation.css";
+@import "layout/footer.css";
 
 @import "issue/issue-list.css";
 @import "issue/issue-list-item.css";

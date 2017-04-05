@@ -1,17 +1,28 @@
 <div class="home">
-  <div class="home__primary-content">
-    {{#each articlesInIssueBlocks}}
-      <div class="home__issue">
-        <div class="home__issue-pre-title">Issue</div>
-        <h2 class="home__issue-title">{{{title}}}</h2>
-        <div class="home__articles">
-          {{> articles/articleGrid}}
-        </div>
-      </div>
-    {{/each}}
+
+  <div class="home__top" style="background-image: url({{{venue.frontPageImage.asset.url}}})">
+    <div class="home__top-content">
+      <h1 class="home__top-title">{{{venue.name}}}</h1>
+      <p  class="home__top-description">{{{venue.shortDescription}}}</p>
+    </div>
   </div>
-  <div class="home__secondary-content">
-    issues go here
+
+  <div class="home__center">
+
+    <div class="home__primary-content">
+      {{#each articlesInIssueBlocks}}
+        <div class="home__issue">
+          <div class="home__issue-pre-title">Issue</div>
+          <h2 class="home__issue-title">{{{title}}}</h2>
+          <div class="home__articles">
+            {{> articles/articleGrid}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <div class="home__secondary-content">
+      issues go here
+    </div>
   </div>
 
 </div>
