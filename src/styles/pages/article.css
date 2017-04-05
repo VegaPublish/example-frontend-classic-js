@@ -1,5 +1,10 @@
 .article-page {
     lost-utility: clearfix;
+    lost-center: 980px;
+
+    &__main-image {
+      width: 100%;
+    }
 
     &__primary-content {
       lost-column: 3/4 0;
