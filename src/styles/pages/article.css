@@ -16,17 +16,41 @@
 
     &__title {
       font-family: "Playfair Display";
+      font-size: 4em;
+      margin-bottom: 0;
     }
 
     &__meta {
       font-size: 0.7em;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      padding: 1em 0;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      line-height: 4em;
     }
 
     &__authors {
-      border: 1px solid red;
+      float: right;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__toc {
+      border-top: 3px solid #000;
+      padding-top: 1rem;
+    }
+
+    &__author {
+      display: inline-block;
+    }
+
+    &__author-image-container {
+      display: inline-block;
+      height: 2em;
+      width: 2em;
+      background-color: #ccc;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 0.5em;
     }
 
     &__abstract {

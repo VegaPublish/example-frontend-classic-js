@@ -5,15 +5,19 @@
     Created {{{dateTime article._createdAt}}} Updated: {{{dateTime article._updatedAt}}}
     <ul class="article-page__authors">
       {{#each article.authors}}
-        <li>
-          <img src="{{{profileImage.asset.url}}}" />
+        <li class="article-page__author">
+          <div class="article-page__author-image-container">
+            <img src="{{{profileImage.asset.url}}}" class="article-page__author-image"/>
+          </div>
           {{{name}}}
         </li>
       {{/each}}
     </ul>
   </div>
   <div class="article-page__secondary-content">
-    TOC here
+    <div class="article-page__toc">
+      TOC here
+    </div>
   </div>
   <div class="article-page__primary-content">
     <d class="article-page__abstract">
