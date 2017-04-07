@@ -1,8 +1,13 @@
 .article-page {
-    lost-utility: clearfix;
-    lost-center: 980px;
+    &__main-image-container {
+      height: 50vh;
+      width: 100%;
+      position: relative;
+    }
 
     &__main-image {
+      object-fit: cover;
+      height: 100%;
       width: 100%;
     }
 
@@ -34,13 +39,6 @@
       padding: 0;
     }
 
-    &__sticky {
-      display: block;
-      position: sticky;
-      top: 10px;
-      z-index: 1;
-      border: 1px solid red;
-    }
 
     &__toc {
       display: block;
@@ -84,7 +82,7 @@
       margin-bottom: 1em;
       border-bottom: 1px solid #ccc;
     }
-    
+
     &__body {
       line-height: 1.4em;
       @nest & h1 {
@@ -95,6 +93,22 @@
       @nest & h2 {
         padding-top: 1em;
         font-family: "Playfair Display";
+      }
+    }
+    & blockquote {
+      font-family: "Playfair Display";
+      font-size: 1.2em;
+      line-height: 1.5em;
+      font-style: italic;
+      position: relative;
+      margin: 3rem;
+      @nest &::before {
+        position: absolute;
+        left: -2rem;
+        top: 1rem;
+        font-size: 5em;
+        opacity: 0.2;
+        content: "\"";
       }
     }
 }

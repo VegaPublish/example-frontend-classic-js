@@ -2,9 +2,16 @@ const moment = require('moment')
 const config = require('../config')
 const block2html = require('./blocks2html')
 const headerMap = require('./headerMap')
+const venueStore = require('../stores/venueStore')
 
 exports.journalTitle = () => {
   return config.app.title
+}
+
+exports.venue = () => {
+  return venueStore.getVenue().then(venue => {
+    return venue
+  })
 }
 
 exports.fullIssueTitle = issue => {

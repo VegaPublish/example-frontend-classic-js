@@ -31,6 +31,9 @@ const options = {
 const toHtml = new BlockContentToHtml(options)
 
 const blocks2html = function (content) {
+  if (!content) {
+    return
+  }
   return toHtml.convert(content)
 }
 

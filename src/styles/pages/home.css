@@ -19,6 +19,7 @@
 
   &__secondary-content {
     lost-column: 1/4 0;
+    margin-top: 0.7em;
   }
 
   &__center {
@@ -42,5 +43,53 @@
     font-family: "Playfair Display";
     border-bottom: 1px solid #000;
     margin-top: 0;
+  }
+
+  &__issues-title {
+    font-family: "Playfair Display";
+    border-bottom: 1px solid #000;
+  }
+
+  &__issues {
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    &__meta {
+      display: block;
+      font-weight: bold;
+      font-size: 0.5em;
+      line-height: 1em;
+    }
+
+    &__title {
+      color: #26a69a;
+    }
+
+    &__image-container {
+      display: block;
+      height: 3em;
+      width: 3em;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      float: left;
+      margin-right: 0.5em;
+    }
+
+    &__image {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & li {
+      margin: 0;
+      padding: 0.5em 0;
+      display: block;
+    }
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 }

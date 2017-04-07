@@ -29,6 +29,10 @@ const options = {
 const toHtml = new BlockContentToHtml(options)
 
 const headerMap = function (content) {
+  if (!content) {
+    return
+  }
+
   const items = []
   content.map(function (item) {
     if (item._type === 'block' && item.style === 'h1') {

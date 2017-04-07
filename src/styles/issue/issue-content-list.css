@@ -1,0 +1,17 @@
+.issue-content-list {
+  margin: 0;
+  padding: 0;
+  display: block;
+  margin-top: 5em;
+
+  &__item {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  &__item-title {
+    font-size: 1.5em;
+    font-family: "Playfair Display";
+  }
+}

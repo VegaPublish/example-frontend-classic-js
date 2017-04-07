@@ -7,13 +7,9 @@ html, body {
   font-size: 100%;
 }
 
-.wrapper {
-
-}
-
-
-.content {
-  
+.layout__center {
+  lost-utility: clearfix;
+  lost-center: 980px;
 }
 
 .error-message-container {

@@ -1,6 +1,7 @@
 const config = require('../config')
 const articleStore = require('../stores/articleStore')
 const venueStore = require('../stores/venueStore')
+const issueStore = require('../stores/issueStore')
 
 module.exports = (function () {
   const router = require('express').Router()
@@ -15,16 +16,20 @@ module.exports = (function () {
     venueStore.getVenue().then(venue => {
       context.venue = venue[0]
       articleStore.getAllArticlesFromIssues().then(issues => {
-        context.articlesInIssueBlocks = issues.map(function (issue) {
-          issue.articles = []
-          issue.content.forEach(function (content) {
-            content.articles.forEach(function (article) {
-              issue.articles.push(article)
+        issueStore.getIssues().then(issueStoreIssues => {
+          context.issues = issueStoreIssues
+
+          context.articlesInIssueBlocks = issues.map(function (issue) {
+            issue.articles = []
+            issue.content.forEach(function (content) {
+              content.articles.forEach(function (article) {
+                issue.articles.push(article)
+              })
             })
+            return issue
           })
-          return issue
+          res.render('home', context)
         })
-        res.render('home', context)
       })
     })
   })

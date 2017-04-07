@@ -1,8 +1,18 @@
-<h2>{{fullIssueTitle issue}}</h2>
+<div class="issue-page">
 
-{{#if issue.coverImage}}
-  <img class='issue-list-item-image' src='{{issue.coverImage.asset.url}}' />
-{{/if}}
+  {{#if issue.coverImage}}
+    <div class="issue-page__image-container">
+      <img class='issue-page__image' src='{{issue.coverImage.asset.url}}' />
+    </div>
+  {{/if}}
 
-<h3>Content</h3>
-{{> issues/contentList}}
+  <div class="layout__center">
+
+
+    <h2 class="issue-page__title">{{issue.title}}</h2>
+
+
+    {{> issues/contentList}}
+  </div>
+
+</div>

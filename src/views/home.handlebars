@@ -21,7 +21,20 @@
       {{/each}}
     </div>
     <div class="home__secondary-content">
-      issues go here
+      <h2 class="home__issues-title">Issues</h2>
+      <ul class="home__issues">
+        {{#each issues}}
+          <li>
+            <a href="/issues/{{{_id}}}">
+              <span class="home__issues__image-container">
+                <img class="home__issues__image" src="{{{coverImage.asset.url}}}" />
+              </span>
+              <span class="home__issues__meta">Volume {{{volume}}} {{{year}}}</span>
+              <span class="home__issues__title">{{{title}}}</span>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 
