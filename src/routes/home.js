@@ -14,7 +14,6 @@ module.exports = (function () {
 
     venueStore.getVenue().then(venue => {
       context.venue = venue[0]
-      console.log(venue)
       articleStore.getAllArticlesFromIssues().then(issues => {
         context.articlesInIssueBlocks = issues.map(function (issue) {
           issue.articles = []

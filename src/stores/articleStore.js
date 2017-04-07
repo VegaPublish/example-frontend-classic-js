@@ -1,4 +1,5 @@
 const client = require('../lib/client')
+const uniqueId = require('lodash.uniqueid')
 
 module.exports = {
 
@@ -47,11 +48,25 @@ module.exports = {
             asset{...}
           }
         },
+        content{...},
         mainImage{
           asset{url}
         }
       }
     `
-    return client.fetch(query)
+    return client.fetch(query).then(function (result) {
+      const content = result[0].content
+
+      if (content) {
+        const extra = {}
+        content.map(function (item, i) {
+          item.extra = {id: `item-${i}`}
+          console.log('extra', item.extra)
+          return item
+        })
+      }
+
+      return result
+    })
   }
 }

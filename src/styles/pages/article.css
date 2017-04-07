@@ -34,9 +34,32 @@
       padding: 0;
     }
 
+    &__sticky {
+      display: block;
+      position: sticky;
+      top: 10px;
+      z-index: 1;
+      border: 1px solid red;
+    }
+
     &__toc {
+      display: block;
+      margin: 0;
+      padding: 0;
       border-top: 3px solid #000;
       padding-top: 1rem;
+      margin-top: 1rem;
+      display: block;
+    }
+
+
+    &__toc-link {
+      border-left: 3px solid transparent;
+
+      &.active {
+        border-color: #000;
+      }
+
     }
 
     &__author {
@@ -55,6 +78,23 @@
 
     &__abstract {
       font-family: "Playfair Display";
+      font-size: 1.2em;
       line-height: 1.5em;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    &__body {
+      line-height: 1.4em;
+      @nest & h1 {
+        padding-top: 1em;
+        font-family: "Playfair Display";
+      }
+
+      @nest & h2 {
+        padding-top: 1em;
+        font-family: "Playfair Display";
+      }
     }
 }

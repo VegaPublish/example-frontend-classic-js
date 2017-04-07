@@ -1,3 +1,4 @@
+
 <div class="article-page">
   <img class="article-page__main-image" src="{{{article.mainImage.asset.url}}}" />
   <h1 class="article-page__title">{{{article.title}}}</h1>
@@ -15,13 +16,20 @@
     </ul>
   </div>
   <div class="article-page__secondary-content">
-    <div class="article-page__toc">
-      TOC here
+    <div class="sticky">
+      <ul class="article-page__toc">
+        {{{headerMap article.content}}}
+      </ul>
     </div>
   </div>
   <div class="article-page__primary-content">
-    <d class="article-page__abstract">
+    <p class="article-page__abstract">
       {{{article.abstract}}}
     </p>
+
+
+    <div class="article-page__body">
+      {{{blocks2html article.content}}}
+    </div>
   </div>
 </div>

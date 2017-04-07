@@ -1,0 +1,28 @@
+.header-map {
+  &__item {
+    display: block;
+    line-height: 2em;
+    border-left: 3px solid transparent;
+    transition: border-color 0.15s linear;
+
+    @nest &.active {
+      border-color: #000;
+      font-weight: bold;
+    }
+
+    &--indented {
+      font-size: 0.7em;
+      padding-left: 1rem;
+    }
+  }
+
+
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding-left: 1em;
+
+  }
+}
