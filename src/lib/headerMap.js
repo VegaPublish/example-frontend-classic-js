@@ -4,7 +4,6 @@ const options = {
   blockTypeHandlers: {
     textBlock: {
       h1: node => {
-        console.log(node.extra.id)
         return (
           `
             <li class="header-map__item">

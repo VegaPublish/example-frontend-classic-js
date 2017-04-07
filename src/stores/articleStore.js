@@ -58,10 +58,8 @@ module.exports = {
       const content = result[0].content
 
       if (content) {
-        const extra = {}
         content.map(function (item, i) {
           item.extra = {id: `item-${i}`}
-          console.log('extra', item.extra)
           return item
         })
       }
