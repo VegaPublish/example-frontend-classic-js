@@ -1,15 +1,6 @@
 const config = require('../config')
 const articleStore = require('../stores/articleStore')
-
-const handleStoreError = (res, err) => {
-  return res.status(err.statusCode).render(
-    'error', {
-      title: 'An error occured in articleStore',
-      message: JSON.stringify(err.response.body),
-      statusCode: JSON.stringify(err.statusCode)
-    }
-  )
-}
+const helpers = require('./helpers')
 
 module.exports = (function () {
   const router = require('express').Router()
@@ -30,7 +21,7 @@ module.exports = (function () {
         context.htmlTitle = `${config.app.title} - ${article.title}`
         res.render('article', context)
       })
-      .catch(err => handleStoreError(res, err))
+      .catch(err => helpers.handleStoreError(res, err))
   })
 
   return router

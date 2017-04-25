@@ -1,16 +1,7 @@
 const config = require('../config')
 const issueStore = require('../stores/issueStore')
 const viewHelpers = require('../lib/viewHelpers')
-
-const handleStoreError = (res, err) => {
-  return res.status(err.statusCode).render(
-    'error', {
-      title: 'An error occured in issueStore',
-      message: JSON.stringify(err.response.body),
-      statusCode: JSON.stringify(err.statusCode)
-    }
-  )
-}
+const helpers = require('./helpers')
 
 module.exports = (function () {
   const router = require('express').Router()
@@ -25,6 +16,7 @@ module.exports = (function () {
         context.issues = issues
         res.render('issues', context)
       })
+      .catch(err => helpers.handleStoreError(res, err))
   })
 
   router.get('/:id/', function (req, res) {
@@ -43,7 +35,7 @@ module.exports = (function () {
         context.htmlTitle = `${config.app.title} - ${viewHelpers.fullIssueTitle(context.issue)}`
         res.render('issue', context)
       })
-      .catch(err => handleStoreError(res, err))
+      .catch(err => helpers.handleStoreError(res, err))
   })
 
   return router
