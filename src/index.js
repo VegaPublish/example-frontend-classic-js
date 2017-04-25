@@ -1,6 +1,8 @@
 const fs = require('fs')
 
-function start () {
+function start (environment) {
+  process.env.NODE_ENV = process.env.NODE_ENV || environment
+
   // Check if the config is OK
   const config = fs.existsSync('./src/config.js') ? require('./config') : false
   if (!config || !config.sanity.projectId) {
@@ -16,4 +18,4 @@ function start () {
   app.listen(port, () => console.log(`\x1b[32m\nServer running on port ${port}\n`))
 }
 
-start()
+start(process.argv.slice(2)[0])
