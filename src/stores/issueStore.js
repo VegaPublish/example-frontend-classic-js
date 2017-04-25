@@ -1,37 +1,48 @@
 const client = require('../lib/client')
+const utils = require('./utils')
+
+const IssueStoreError = utils.createStoreError('IssueStore')
 
 module.exports = {
 
   getIssues: () => {
     const query = `
-      *[is "issue"]|order(publishAt.utc desc)[0...1000]{
+      *[_type == "issue"]|order(publishAt.utc desc)[0...1000]{
         ...,
         coverImage{
           asset{url}
         }
       }
     `
-    return client.fetch(query)
+    return client
+      .fetch(query)
+      .catch(err => {
+        throw new IssueStoreError(err)
+      })
   },
 
   getIssueById: id => {
     const query = `
-      *[is "issue" && _id == $id]{
+      *[_type == "issue" && _id == $id]{
         ...,
         coverImage{
-          asset{url}
+          "asset": asset->{url}
         },
-        content{
+        "content": content[]{
           ...,
-          articles{
+          "articles": articles[] -> {
             ...,
             mainImage{
-              asset{...}
+              "asset": asset->{url}
             }
           }
         }
       }
     `
-    return client.fetch(query, {id})
+    return client
+      .fetch(query, {id})
+      .catch(err => {
+        throw new IssueStoreError(err)
+      })
   }
 }

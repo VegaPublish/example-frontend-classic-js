@@ -1,15 +1,27 @@
 const client = require('../lib/client')
+const utils = require('./utils')
+
+const VenueStoreError = utils.createStoreError('VenueStore')
 
 module.exports = {
 
   getVenue: () => {
     const query = `
-      *[is "venue"]{
+      *[_type == "venue"]{
         ...,
-        frontPageImage{asset{url}},
-        logo{asset{url}}
+        frontPageImage{
+          "asset": asset->{url}
+        },
+
+        logo{
+          "asset": asset->{url}
+        }
       }
     `
     return client.fetch(query)
+      .then(venues => venues[0])
+      .catch(err => {
+        throw new VenueStoreError(err)
+      })
   }
 }

@@ -1,70 +1,82 @@
 const client = require('../lib/client')
-const uniqueId = require('lodash.uniqueid')
+const utils = require('./utils')
+
+const ArticleStoreError = utils.createStoreError('ArticleStore')
 
 module.exports = {
 
   getAllArticlesFromIssues: () => {
     const query = `
-    *[is "issue"]{
-      _updatedAt,
-      title,
-      content{
-        articles{
-          _id,
-          title,
-          authors{...},
-          mainImage{
-            asset{
-              url
+      *[_type == "issue"]{
+        _updatedAt,
+        title,
+        "content": content[]{
+          ...,
+          "articles" : articles[] -> {
+            _id,
+            title,
+            _createdAt,
+            "authors": authors[]{...},
+            mainImage{
+              "asset": asset->{url}
             }
           }
         }
       }
-    }
     `
-    return client.fetch(query)
+    return client
+      .fetch(query)
+      .catch(err => {
+        throw new ArticleStoreError(err)
+      })
   },
 
   getAllArticles: () => {
     const query = `
-      *[is "article"]|order(publishAt.utc desc)[0...1000]{
+      *[_type == "article"]|order(publishAt.utc desc)[0...1000]{
         ...,
         mainImage{
-          asset{url}
+          "asset": asset->{url}
         }
       }
     `
-    return client.fetch(query)
+    return client
+      .fetch(query)
+      .catch(err => {
+        throw new ArticleStoreError(err)
+      })
   },
 
   getArticle: id => {
     const query = `
       *[_id == "${id}"]{
         ...,
-        authors{
+        "authors": authors[]{
           name,
           profileImage{
             ...,
-            asset{...}
+            "asset": asset->{url}
           }
         },
-        content{...},
+        "content": content[],
         mainImage{
-          asset{url}
+          "asset": asset->{url}
         }
       }
     `
-    return client.fetch(query).then(function (result) {
-      const content = result[0].content
-
-      if (content) {
-        content.map(function (item, i) {
-          item.extra = {id: `item-${i}`}
-          return item
-        })
-      }
-
-      return result
-    })
+    return client.fetch(query)
+      .then(result => {
+        const content = result[0].content
+        if (content) {
+          content.map(function (item, i) {
+            item.extra = {id: `item-${i}`}
+            return item
+          })
+        }
+        return result
+      })
+      .catch(err => {
+        throw new ArticleStoreError(err)
+      })
   }
 }
