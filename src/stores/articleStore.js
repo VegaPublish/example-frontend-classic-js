@@ -10,15 +10,15 @@ module.exports = {
       *[_type == "issue"]{
         _updatedAt,
         title,
-        "content": content[]{
+        content[]{
           ...,
-          "articles" : articles[] -> {
+          articles[] -> {
             _id,
             title,
             _createdAt,
-            "authors": authors[]{...},
+            authors[]{...},
             mainImage{
-              "asset": asset->{url}
+              asset->{url}
             }
           }
         }
@@ -36,7 +36,7 @@ module.exports = {
       *[_type == "article"]|order(publishAt.utc desc)[0...1000]{
         ...,
         mainImage{
-          "asset": asset->{url}
+          asset->{url}
         }
       }
     `
@@ -51,16 +51,16 @@ module.exports = {
     const query = `
       *[_id == "${id}"]{
         ...,
-        "authors": authors[]{
+        authors[]{
           name,
           profileImage{
             ...,
-            "asset": asset->{url}
+            asset->{url}
           }
         },
-        "content": content[],
+        content[],
         mainImage{
-          "asset": asset->{url}
+          asset->{url}
         }
       }
     `

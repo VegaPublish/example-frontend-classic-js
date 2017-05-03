@@ -10,11 +10,11 @@ module.exports = {
       *[_type == "venue"]{
         ...,
         frontPageImage{
-          "asset": asset->{url}
+          asset->{url}
         },
 
         logo{
-          "asset": asset->{url}
+          asset->{url}
         }
       }
     `

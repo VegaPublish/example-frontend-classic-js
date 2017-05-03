@@ -26,14 +26,14 @@ module.exports = {
       *[_type == "issue" && _id == $id]{
         ...,
         coverImage{
-          "asset": asset->{url}
+          asset->{url}
         },
-        "content": content[]{
+        content[]{
           ...,
-          "articles": articles[] -> {
+          articles[] -> {
             ...,
             mainImage{
-              "asset": asset->{url}
+              asset->{url}
             }
           }
         }

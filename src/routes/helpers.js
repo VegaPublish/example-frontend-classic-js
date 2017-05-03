@@ -1,4 +1,5 @@
 exports.handleStoreError = (res, err) => {
+  err.statusCode = err.statusCode || 500
   return res.status(err.statusCode).render(
     'error', {
       title: err.message,

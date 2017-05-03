@@ -24,8 +24,8 @@
     "node": ">=6.5.0"
   },
   "dependencies": {
-    "@sanity/block-content-to-html": "^0.1.3",
-    "@sanity/client": "^0.104.40",
+    "@sanity/block-content-to-html": "^0.1.10",
+    "@sanity/client": "^0.105.0-drafts.2",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "lodash.uniqueid": "^4.0.1",

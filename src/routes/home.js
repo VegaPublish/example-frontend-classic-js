@@ -27,7 +27,9 @@ module.exports = (function () {
       const issues = values[2]
       context.issues = issues
       context.articlesInIssueBlocks = allArticlesFromIssues.map(issue => {
-        issue.articles = [].concat.apply([], issue.content.map(content => content.articles))
+        issue.articles = issue.content
+          ? [].concat.apply([], issue.content.map(content => content.articles))
+          : []
         return issue
       })
       res.render('home', context)
