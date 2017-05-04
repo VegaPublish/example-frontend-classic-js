@@ -1,6 +1,15 @@
 const BlockContentToHtml = require('@sanity/block-content-to-html')
 
 const options = {
+  customTypeHandlers: {
+    image: node => {
+      return (
+        `
+          <img src="${node.attributes.asset.url}" />
+        `
+      )
+    }
+  },
   blockTypeHandlers: {
     textBlock: {
       h1: node => {

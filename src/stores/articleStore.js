@@ -58,7 +58,10 @@ module.exports = {
             asset->{url}
           }
         },
-        content[],
+        content[]{
+          ...,
+          asset->{url}
+        },
         mainImage{
           asset->{url}
         }

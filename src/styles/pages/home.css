@@ -55,6 +55,11 @@
     padding: 0;
     display: block;
 
+    &__issue {
+      display: block;
+      clear: both;
+    }
+
     &__meta {
       display: block;
       font-weight: bold;

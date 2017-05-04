@@ -10,7 +10,7 @@ module.exports = {
       *[_type == "issue"]|order(publishAt.utc desc)[0...1000]{
         ...,
         coverImage{
-          asset{url}
+          asset->{url}
         }
       }
     `
