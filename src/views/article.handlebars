@@ -1,4 +1,3 @@
-
 <article class="article-page">
 
   <div class="article-page__main-image-container">
@@ -11,12 +10,12 @@
       Created {{{dateTime article._createdAt}}} Updated: {{{dateTime article._updatedAt}}}
       <ul class="article-page__authors">
         {{#each article.authors}}
-          <li class="article-page__author">
-            <div class="article-page__author-image-container">
-              <img src="{{{profileImage.asset.url}}}" class="article-page__author-image"/>
-            </div>
-            {{{name}}}
-          </li>
+        <li class="article-page__author">
+          <div class="article-page__author-image-container">
+            <img src="{{{profileImage.asset.url}}}" class="article-page__author-image" />
+          </div>
+          {{{name}}}
+        </li>
         {{/each}}
       </ul>
     </div>
@@ -31,7 +30,6 @@
       <p class="article-page__abstract">
         {{{article.abstract}}}
       </p>
-
 
       <div class="article-page__body">
         {{{blocks2html article.content}}}
