@@ -1,14 +1,16 @@
 .issue-content-article-list {
   margin: 0;
   padding-left: 2em;
-  &__link {
-    line-height: 2em;
-    font-family: "Playfair Display";
-    color: #26a69a;
-    text-decoration: none;
-    border-bottom: 3px solid transparent;
-    &:hover {
-      border-color: #26a69a;
-    }
-  }
+}
+
+.issue-content-article-list__link {
+  line-height: 2em;
+  font-family: "Playfair Display";
+  color: #26a69a;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.issue-content-article-list__link:hover {
+  border-color: #26a69a;
 }
