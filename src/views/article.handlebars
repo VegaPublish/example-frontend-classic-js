@@ -11,10 +11,12 @@
       <ul class="article-page__authors">
         {{#each article.authors}}
         <li class="article-page__author">
-          <div class="article-page__author-image-container">
+          <div class="article-page__author-image-container" title="{{{name}}}">
             <img src="{{{profileImage.asset.url}}}?w=80&h=80" class="article-page__author-image" />
           </div>
-          {{{name}}}
+          <div class="article-page__author__name">
+            {{{name}}}
+          </div>
         </li>
         {{/each}}
       </ul>

@@ -33,6 +33,7 @@
     "moment": "^2.18.1",
     "postcss": "^6.0.14",
     "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
     "postcss-middleware": "^1.1.4"
   },
   "devDependencies": {

@@ -8,8 +8,14 @@ html, body {
 }
 
 .layout__center {
-  lost-utility: clearfix;
-  lost-center: 980px;
+  margin: 0 1rem;
+  padding: 0;
+
+  @media (--screen-normal) {
+    lost-utility: clearfix;
+    margin: 0;
+    lost-center: 980px;
+  }
 }
 
 .error-message-container {

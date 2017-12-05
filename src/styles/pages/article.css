@@ -1,5 +1,5 @@
 .article-page__main-image-container {
-  height: 50vh;
+  height: 50vw;
   width: 100%;
   position: relative;
 }
@@ -11,17 +11,21 @@
 }
 
 .article-page__primary-content {
-  lost-column: 3/4 0;
+  /*lost-column: 3/4 0;*/
 }
 
 .article-page__secondary-content {
-  lost-column: 1/4 0;
+  /*lost-column: 1/4 0;*/
 }
 
 .article-page__title {
   font-family: "Playfair Display";
-  font-size: 4em;
+  font-size: 2em;
   margin-bottom: 0;
+
+  @media (--screen-normal) {
+    font-size: 4em;
+  }
 }
 
 .article-page__meta {
@@ -32,10 +36,15 @@
 }
 
 .article-page__authors {
-  float: right;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  justify-content: space-between;
+
+  @media (--screen-normal) {
+    justify-content: flex-start;
+  }
 }
 
 .article-page__toc {
@@ -58,8 +67,17 @@
 
 .article-page__author {
   display: block;
-  height: 4em;
-  overflow: hidden;
+
+}
+
+.article-page__author__name {
+  display: none;
+  padding-right: 2em;
+
+  @media (--screen-normal) {
+    display: inline;
+    padding-right: 2em;
+  }
 }
 
 .article-page__author-image-container {

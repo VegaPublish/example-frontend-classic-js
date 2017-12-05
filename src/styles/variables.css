@@ -1,0 +1,2 @@
+@custom-media --screen-medium (min-width: 768px);
+@custom-media --screen-normal (min-width: 1000px);

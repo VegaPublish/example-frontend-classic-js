@@ -2,6 +2,7 @@
   {{#each articles}}
     <li class="article-grid__item">
       <a href="/article/{{{_id}}}"class="article-grid__link">
+
         <div class="article-grid__meta">
           <span class="article-grid__meta__title">ARTICLE</span>
           <span class="article-grid__meta__date">{{{dateTime _createdAt}}}</span>
@@ -9,7 +10,6 @@
         <div class="article-grid__image-container">
           <img class="article-grid__image" src="{{{mainImage.asset.url}}}" />
         </div>
-
         <div class="article-grid__title">
           {{{title}}}
         </div>
@@ -24,6 +24,8 @@
             <span class="article-grid__author">{{{name}}}</span>
           {{/each}}
         </div>
+
+
 
       </a>
     </li>

@@ -6,11 +6,25 @@
 .article-grid__item {
   display: block;
   margin: 0;
-  padding: 0;
-  lost-column: 1/3 3;
   margin-bottom: 1em;
   box-sizing: border-box;
   position: relative;
+
+  @media (--screen-medium) {
+    lost-column: 1/3 3;
+  }
+}
+
+.article-grid__content {
+  padding-right: 1rem;
+}
+
+.article-grid__link {
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+  justify-content: space-between;
 }
 
 .article-grid__meta {
@@ -29,13 +43,18 @@
 }
 
 .article-grid__image-container {
-  float: right;
-  height: 4em;
-  width: 4em;
+  position: relative;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
-  border: 1px solid #ddd;
-  background-color: color(#000000 a(5%));
+  display: block;
+  float: right;
+}
+
+.article-grid__image {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
 }
 
 .article-grid__author:not(:last-child)::after {
@@ -48,27 +67,11 @@
   margin-top: 0.5em;
 }
 
-.article-grid__link {
-  display: block;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-  width: 100%;
-}
-
 .article-grid__issue {
   font-weight: bold;
   font-size: 0.8em;
   opacity: 0.5;
   margin-bottom: 1em;
-}
-
-.article-grid__image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .article-grid__title {

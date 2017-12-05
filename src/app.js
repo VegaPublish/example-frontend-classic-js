@@ -3,6 +3,7 @@ const path = require('path')
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
 
+const postcssImport = require('postcss-import')
 const postcssMiddleware = require('postcss-middleware')
 const postcssNext = require('postcss-cssnext')
 const lost = require('lost')
@@ -34,7 +35,7 @@ app.use('/css', postcssMiddleware(
     src: req => {
       return path.join('src', 'styles', req.path)
     },
-    plugins: [lost, postcssNext]
+    plugins: [postcssImport, postcssNext, lost]
   })
 )
 
