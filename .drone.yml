@@ -1,75 +1,48 @@
-aliases:
-- &dockerauth
-  username: $$DOCKER_USERNAME
-  password: "$$DOCKER_PASSWORD"
-  email: $$DOCKER_EMAIL
+clone:
+  clone:
+    image: plugins/git
+    depth: 1
 
-- &volumes
-  - "/root/.docker:/root/.docker"
-  - "/root/.kube:/root/.kube"
-  - "/var/run/docker.sock:/var/run/docker.sock"
-
-cache:
-  mount:
-  - .git
-
-build:
+pipeline:
   build:
     image: eu.gcr.io/sanity-cloud/ci
     pull: true
-    auth_config: *dockerauth
-    volumes: *volumes
+    secrets: [docker_auth]
     commands:
-    - docker build --pull -t eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js:$$COMMIT .
+    - ci-docker-build eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js
 
   publish:
     image: eu.gcr.io/sanity-cloud/ci
-    auth_config: *dockerauth
-    volumes: *volumes
+    secrets: [docker_auth]
     commands:
-    - docker tag eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js:$$COMMIT eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js:$$BRANCH
-    - docker push eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js:$$COMMIT
-    - docker push eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js:$$BRANCH
+    - ci-docker-push eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js
     when:
       event: push
 
-  deploy:
+  deploy-production:
     image: eu.gcr.io/sanity-cloud/ci
-    auth_config: *dockerauth
-    volumes: *volumes
+    secrets: [kubernetes_auth, sentry_auth_token]
     commands:
-    - "sed -i -re 's/(image:[^:]+)($|:.+$)/\\1:$$COMMIT/g' kubernetes/production/deployment.yaml"
-    - kubectl --context kubernetes01-eu-w1 --namespace clients apply -f kubernetes/production/
+    - ci-kubernetes-deploy eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js clients kubernetes/production/
+    #- ci-sentry-notify vega-example-frontend-classic-js production
     when:
       branch: master
       event: push
 
   deploy-staging:
     image: eu.gcr.io/sanity-cloud/ci
-    auth_config: *dockerauth
-    volumes: *volumes
+    secrets: [kubernetes_auth, sentry_auth_token]
     commands:
-    - "sed -i -re 's/(image:[^:]+)($|:.+$)/\\1:$$COMMIT/g' kubernetes/staging/deployment.yaml"
-    - kubectl --context kubernetes01-eu-w1 --namespace clients-staging apply -f kubernetes/staging/
+    - ci-kubernetes-deploy eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js clients-staging kubernetes/staging/
+    #- ci-sentry-notify vega-example-frontend-classic-js staging
     when:
       branch: staging
       event: push
 
-notify:
-  email:
-    from: $$SMTP_FROM
-    host: $$SMTP_HOST
-    port: $$SMTP_PORT
-    username: $$SMTP_USERNAME
-    password: $$SMTP_PASSWORD
+  notify:
+    image: eu.gcr.io/sanity-cloud/ci
+    secrets: [postmark_server_token, slack_webhook]
+    commands:
+    - ci-notify
     when:
-      failure: true
-
-  slack:
-    webhook_url: $$SLACK_WEBHOOK
-    username: $$SLACK_USERNAME
-    channel: $$SLACK_CHANNEL
-    template: "$$SLACK_TEMPLATE"
-    when:
-      failure: true
-      change: true
+      status: [failure, success]
