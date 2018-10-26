@@ -23,7 +23,7 @@ pipeline:
     image: eu.gcr.io/sanity-cloud/ci
     secrets: [kubernetes_auth, sentry_auth_token]
     commands:
-    - ci-kubernetes-deploy eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js kubernetes01-eu-w1:clients kubernetes/production/
+    - ci-kubernetes-deploy eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js production:clients kubernetes/production/
     #- ci-sentry-notify vega-example-frontend-classic-js production
     when:
       branch: master
@@ -33,7 +33,7 @@ pipeline:
     image: eu.gcr.io/sanity-cloud/ci
     secrets: [kubernetes_auth, sentry_auth_token]
     commands:
-    - ci-kubernetes-deploy eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js kubernetes03-eu-w1:clients kubernetes/staging/
+    - ci-kubernetes-deploy eu.gcr.io/sanity-cloud/vega-example-frontend-classic-js staging:clients kubernetes/staging/
     #- ci-sentry-notify vega-example-frontend-classic-js staging
     when:
       branch: staging
