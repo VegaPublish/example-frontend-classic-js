@@ -28,14 +28,15 @@ module.exports = (function() {
     }
     issueStore
       .getIssueById(id)
-      .then(issues => {
-        if (!issues.length) {
+      .then(issues => issues[0])
+      .then(issue => {
+        if (!issue) {
           res.status(404).render('notfound', {
             message: `The issue with id ${id} was not found.`
           })
           return
         }
-        context.issue = issues[0]
+        context.issue = issue
         context.htmlTitle = `${config.app.title} - ${viewHelpers.fullIssueTitle(
           context.issue
         )}`

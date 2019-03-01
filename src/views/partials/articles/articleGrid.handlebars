@@ -7,9 +7,11 @@
           <span class="article-grid__meta__title">ARTICLE</span>
           <span class="article-grid__meta__date">{{{dateTime _createdAt}}}</span>
         </div>
+        {{#mainImage.asset.url}}
         <div class="article-grid__image-container">
           <img class="article-grid__image" src="{{{mainImage.asset.url}}}" />
         </div>
+        {{/mainImage.asset.url}}
         <div class="article-grid__title">
           {{{title}}}
         </div>
