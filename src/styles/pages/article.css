@@ -19,7 +19,7 @@
 }
 
 .article-page__title {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   font-size: 2em;
   margin-bottom: 0;
 
@@ -67,7 +67,6 @@
 
 .article-page__author {
   display: block;
-
 }
 
 .article-page__author__name {
@@ -99,7 +98,7 @@
 }
 
 .article-page__abstract {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   font-size: 1.2em;
   line-height: 1.5em;
   padding-bottom: 1em;
@@ -114,12 +113,12 @@
 
 .article-page__body h1 {
   padding-top: 1em;
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
 }
 
 .article-page__body h2 {
   padding-top: 1em;
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
 }
 
 .article-page__body img {
@@ -128,7 +127,7 @@
 }
 
 .article-page__body blockquote {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   font-size: 1.2em;
   line-height: 1.5em;
   font-style: italic;
@@ -141,6 +140,6 @@
     top: 1rem;
     font-size: 5em;
     opacity: 0.2;
-    content: "\"";
+    content: '"';
   }
 }

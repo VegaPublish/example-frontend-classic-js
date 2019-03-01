@@ -4,7 +4,6 @@ const utils = require('./utils')
 const VenueStoreError = utils.createStoreError('VenueStore')
 
 module.exports = {
-
   getVenue: () => {
     const query = `
       *[_type == "venue"]{
@@ -18,7 +17,8 @@ module.exports = {
         }
       }
     `
-    return client.fetch(query)
+    return client
+      .fetch(query)
       .then(venues => venues[0])
       .catch(err => {
         throw new VenueStoreError(err)

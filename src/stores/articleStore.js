@@ -4,7 +4,6 @@ const utils = require('./utils')
 const ArticleStoreError = utils.createStoreError('ArticleStore')
 
 module.exports = {
-
   getAllArticlesFromIssues: () => {
     const query = `
       *[_type == "issue"]{
@@ -24,11 +23,9 @@ module.exports = {
         }
       }
     `
-    return client
-      .fetch(query)
-      .catch(err => {
-        throw new ArticleStoreError(err)
-      })
+    return client.fetch(query).catch(err => {
+      throw new ArticleStoreError(err)
+    })
   },
 
   getAllArticles: () => {
@@ -40,11 +37,9 @@ module.exports = {
         }
       }
     `
-    return client
-      .fetch(query)
-      .catch(err => {
-        throw new ArticleStoreError(err)
-      })
+    return client.fetch(query).catch(err => {
+      throw new ArticleStoreError(err)
+    })
   },
 
   getArticle: id => {
@@ -67,11 +62,12 @@ module.exports = {
         }
       }
     `
-    return client.fetch(query)
+    return client
+      .fetch(query)
       .then(result => {
         const content = result[0].content
         if (content) {
-          content.map(function (item, i) {
+          content.map(function(item, i) {
             item.extra = {id: `item-${i}`}
             return item
           })

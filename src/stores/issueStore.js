@@ -4,21 +4,18 @@ const utils = require('./utils')
 const IssueStoreError = utils.createStoreError('IssueStore')
 
 module.exports = {
-
   getIssues: () => {
     const query = `
-      *[_type == "issue"]|order(publishAt.utc desc)[0...1000]{
+      *[_type == "issue"]{
         ...,
         coverImage{
           asset->{url}
         }
       }
     `
-    return client
-      .fetch(query)
-      .catch(err => {
-        throw new IssueStoreError(err)
-      })
+    return client.fetch(query).catch(err => {
+      throw new IssueStoreError(err)
+    })
   },
 
   getIssueById: id => {
@@ -39,10 +36,8 @@ module.exports = {
         }
       }
     `
-    return client
-      .fetch(query, {id})
-      .catch(err => {
-        throw new IssueStoreError(err)
-      })
+    return client.fetch(query, {id}).catch(err => {
+      throw new IssueStoreError(err)
+    })
   }
 }

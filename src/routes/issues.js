@@ -3,15 +3,16 @@ const issueStore = require('../stores/issueStore')
 const viewHelpers = require('../lib/viewHelpers')
 const helpers = require('./helpers')
 
-module.exports = (function () {
+module.exports = (function() {
   const router = require('express').Router()
 
-  router.get('/', function (req, res) {
+  router.get('/', function(req, res) {
     const context = {
       htmlTitle: `${config.app.title} - Issues`,
       issues: []
     }
-    issueStore.getIssues()
+    issueStore
+      .getIssues()
       .then(issues => {
         context.issues = issues
         res.render('issues', context)
@@ -19,20 +20,25 @@ module.exports = (function () {
       .catch(err => helpers.handleStoreError(res, err))
   })
 
-  router.get('/:id/', function (req, res) {
+  router.get('/:id/', function(req, res) {
     const {id} = req.params
     const context = {
       htmlTitle: null,
       issue: null
     }
-    issueStore.getIssueById(id)
+    issueStore
+      .getIssueById(id)
       .then(issues => {
         if (!issues.length) {
-          res.status(404).render('notfound', {message: `The issue with id ${id} was not found.`})
+          res.status(404).render('notfound', {
+            message: `The issue with id ${id} was not found.`
+          })
           return
         }
         context.issue = issues[0]
-        context.htmlTitle = `${config.app.title} - ${viewHelpers.fullIssueTitle(context.issue)}`
+        context.htmlTitle = `${config.app.title} - ${viewHelpers.fullIssueTitle(
+          context.issue
+        )}`
         res.render('issue', context)
       })
       .catch(err => helpers.handleStoreError(res, err))

@@ -1,17 +1,17 @@
-@import "variables.css";
-@import "layout/layout.css";
-@import "layout/header.css";
-@import "layout/navigation.css";
-@import "layout/footer.css";
-@import "layout/headerMap.css";
+@import 'variables.css';
+@import 'layout/layout.css';
+@import 'layout/header.css';
+@import 'layout/navigation.css';
+@import 'layout/footer.css';
+@import 'layout/headerMap.css';
 
-@import "issue/issue-list.css";
-@import "issue/issue-list-item.css";
-@import "issue/issue-content-list.css";
-@import "issue/issue-content-article-list.css";
+@import 'issue/issue-list.css';
+@import 'issue/issue-list-item.css';
+@import 'issue/issue-content-list.css';
+@import 'issue/issue-content-article-list.css';
 
-@import "articles/article-grid.css";
+@import 'articles/article-grid.css';
 
-@import "pages/home.css";
-@import "pages/issue.css";
-@import "pages/article.css";
+@import 'pages/home.css';
+@import 'pages/issue.css';
+@import 'pages/article.css';

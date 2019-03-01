@@ -2,19 +2,22 @@ const config = require('../config')
 const articleStore = require('../stores/articleStore')
 const helpers = require('./helpers')
 
-module.exports = (function () {
+module.exports = (function() {
   const router = require('express').Router()
 
-  router.get('/:id', function (req, res) {
+  router.get('/:id', function(req, res) {
     const {id} = req.params
     const context = {
       htmlTitle: null,
       article: null
     }
-    articleStore.getArticle(id)
+    articleStore
+      .getArticle(id)
       .then(article => {
         if (!article) {
-          res.status(404).render('notfound', {message: `The article with id ${id} was not found.`})
+          res.status(404).render('notfound', {
+            message: `The article with id ${id} was not found.`
+          })
           return
         }
         context.article = article[0]

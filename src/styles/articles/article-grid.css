@@ -58,7 +58,7 @@
 }
 
 .article-grid__author:not(:last-child)::after {
-  content: ", ";
+  content: ', ';
 }
 
 .article-grid__authors {
@@ -75,6 +75,6 @@
 }
 
 .article-grid__title {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   color: #26a69a;
 }

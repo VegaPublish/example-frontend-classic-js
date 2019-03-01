@@ -17,9 +17,7 @@ const app = express()
 const handlebarsEngine = expressHandlebars({
   defaultLayout: 'main',
   layoutsDir: './src/views/layouts',
-  partialsDir: [
-    './src/views/partials'
-  ],
+  partialsDir: ['./src/views/partials'],
   helpers: viewHelpers
 })
 app.engine('handlebars', handlebarsEngine)
@@ -30,8 +28,9 @@ app.set('views', './src/views')
 app.use(express.static('src/static'))
 
 // PostCSS middleware with PostCSSNext plugin
-app.use('/css', postcssMiddleware(
-  {
+app.use(
+  '/css',
+  postcssMiddleware({
     src: req => {
       return path.join('src', 'styles', req.path)
     },
