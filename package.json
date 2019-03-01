@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "Example frontend for Vega written as a classic node app",
-  "author": "Bengler AS <hello@bengler.no>",
+  "author": "VegaPublish <hello@bengler.no>",
   "license": "MIT",
   "main": "package.json",
   "keywords": [
@@ -21,26 +21,28 @@
     "develop": "nodemon ./src/index.js -- development"
   },
   "engines": {
-    "node": ">=6.5.0"
+    "node": ">=8.5.0"
   },
   "dependencies": {
-    "@sanity/block-content-to-html": "^1.3.2",
-    "@sanity/client": "^0.122.0",
-    "express": "^4.15.2",
-    "express-handlebars": "^3.0.0",
+    "@lyra/block-content-to-html": "^0.2.6",
+    "@lyra/client": "^0.2.8",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
     "lodash.uniqueid": "^4.0.1",
-    "lost": "^8.2.0",
-    "moment": "^2.18.1",
-    "postcss": "^6.0.14",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-import": "^11.0.0",
+    "lost": "^8.3.1",
+    "moment": "^2.24.0",
+    "postcss": "^7.0.14",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
     "postcss-middleware": "^1.1.4"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-config-standard": "^7.1.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^2.1.1",
-    "nodemon": "^1.11.0"
+    "eslint": "^5.14.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.18.10"
   }
 }

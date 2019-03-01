@@ -5,10 +5,10 @@ function start (environment) {
 
   // Check if the config is OK
   const config = fs.existsSync('./src/config.js') ? require('./config') : false
-  if (!config || !config.sanity.projectId) {
+  if (!config || !config.lyra.apiHost) {
     console.error(
       '\x1b[31m\nPlease configure "./src/config.js" with a valid ' +
-      'Sanity configuration before running the app.\n\nSee "./src/config-example.js" for a template'
+      'Lyra configuration before running the app.\n\nSee "./src/config-example.js" for a template'
     )
     process.exit(1)
   }

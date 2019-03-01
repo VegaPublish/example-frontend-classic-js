@@ -1,6 +1,6 @@
 const config = require('../config')
-const sanityClient = require('@sanity/client')
+const lyraClient = require('@lyra/client')
 
-const client = sanityClient(config.sanity)
+const client = lyraClient(config.lyra)
 
 module.exports = client

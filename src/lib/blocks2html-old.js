@@ -1,4 +1,4 @@
-const BlockContentToHtml = require('@sanity/block-content-to-html')
+const BlockContentToHtml = require('@lyra/block-content-to-html')
 
 const options = {
   customTypeHandlers: {

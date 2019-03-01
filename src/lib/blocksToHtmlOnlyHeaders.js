@@ -1,4 +1,4 @@
-const blockContentToHtml = require('@sanity/block-content-to-html')
+const blockContentToHtml = require('@lyra/block-content-to-html')
 const h = blockContentToHtml.h
 
 const BlockRenderer = props => {

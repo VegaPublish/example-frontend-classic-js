@@ -5,7 +5,7 @@ module.exports = {
   app: {
     title: 'Example app'
   },
-  sanity: {
+  lyra: {
     projectId: '',
     dataset: ''
   }
