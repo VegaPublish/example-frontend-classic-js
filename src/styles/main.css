@@ -15,3 +15,8 @@
 @import 'pages/home.css';
 @import 'pages/issue.css';
 @import 'pages/article.css';
+@import 'pages/issues.css';
+
+h1, h2 {
+  font-family: 'Playfair Display';
+}

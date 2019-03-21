@@ -11,9 +11,6 @@
       <ul class="article-page__authors">
         {{#each article.authors}}
         <li class="article-page__author">
-          <div class="article-page__author-image-container" title="{{{name}}}">
-            <img src="{{{profileImage.asset.url}}}?w=80&h=80" class="article-page__author-image" />
-          </div>
           <div class="article-page__author__name">
             {{{name}}}
           </div>
@@ -30,7 +27,7 @@
     </div>
     <div class="article-page__primary-content">
       <p class="article-page__abstract">
-        {{{article.abstract}}}
+        {{{blocks2html article.abstract}}}
       </p>
 
       <div class="article-page__body">

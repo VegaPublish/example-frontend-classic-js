@@ -1,4 +1,5 @@
 const config = require('../config')
+const venueStore = require('../stores/venueStore')
 const issueStore = require('../stores/issueStore')
 const viewHelpers = require('../lib/viewHelpers')
 const helpers = require('./helpers')
@@ -9,15 +10,23 @@ module.exports = (function() {
   router.get('/', function(req, res) {
     const context = {
       htmlTitle: `${config.app.title} - Issues`,
-      issues: []
+      issues: [],
+      venue: {}
     }
-    issueStore
-      .getIssues()
-      .then(issues => {
-        context.issues = issues
-        res.render('issues', context)
+    venueStore
+      .getVenue()
+      .then(venue => {
+        context.venue = venue
       })
-      .catch(err => helpers.handleStoreError(res, err))
+      .then(() => {
+        return issueStore
+          .getIssues()
+          .then(issues => {
+            context.issues = issues
+            res.render('issues', context)
+          })
+          .catch(err => helpers.handleStoreError(res, err))
+      })
   })
 
   router.get('/:id/', function(req, res) {
@@ -26,23 +35,31 @@ module.exports = (function() {
       htmlTitle: null,
       issue: null
     }
-    issueStore
-      .getIssueById(id)
-      .then(issues => issues[0])
-      .then(issue => {
-        if (!issue) {
-          res.status(404).render('notfound', {
-            message: `The issue with id ${id} was not found.`
-          })
-          return
-        }
-        context.issue = issue
-        context.htmlTitle = `${config.app.title} - ${viewHelpers.fullIssueTitle(
-          context.issue
-        )}`
-        res.render('issue', context)
+
+    venueStore
+      .getVenue()
+      .then(venue => {
+        context.venue = venue
       })
-      .catch(err => helpers.handleStoreError(res, err))
+      .then(() => {
+        return issueStore
+          .getIssueById(id)
+          .then(issues => issues[0])
+          .then(issue => {
+            if (!issue) {
+              res.status(404).render('notfound', {
+                message: `The issue with id ${id} was not found.`
+              })
+              return
+            }
+            context.issue = issue
+            context.htmlTitle = `${
+              config.app.title
+            } - ${viewHelpers.fullIssueTitle(context.issue)}`
+            res.render('issue', context)
+          })
+          .catch(err => helpers.handleStoreError(res, err))
+      })
   })
 
   return router

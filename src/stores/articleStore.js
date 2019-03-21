@@ -1,6 +1,6 @@
 const client = require('../lib/client')
 const utils = require('./utils')
-
+const loadArticles = require('./loadArticles')
 const ArticleStoreError = utils.createStoreError('ArticleStore')
 
 module.exports = {
@@ -10,22 +10,17 @@ module.exports = {
         _updatedAt,
         title,
         content[]{
-          ...,
-          articles[] -> {
-            _id,
-            title,
-            _createdAt,
-            authors[]{...},
-            mainImage{
-              asset->{url}
-            }
-          }
+          ...
         }
       }
     `
-    return client.fetch(query).catch(err => {
-      throw new ArticleStoreError(err)
-    })
+    return client
+      .fetch(query)
+      .then(loadArticles)
+      .catch(err => {
+        console.error(err)
+        throw new ArticleStoreError(err)
+      })
   },
 
   getAllArticles: () => {

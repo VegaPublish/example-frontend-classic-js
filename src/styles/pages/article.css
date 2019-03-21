@@ -70,7 +70,6 @@
 }
 
 .article-page__author__name {
-  display: none;
   padding-right: 2em;
 
   @media (--screen-normal) {

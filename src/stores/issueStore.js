@@ -1,5 +1,6 @@
 const client = require('../lib/client')
 const utils = require('./utils')
+const loadArticles = require('./loadArticles')
 
 const IssueStoreError = utils.createStoreError('IssueStore')
 
@@ -25,19 +26,14 @@ module.exports = {
         coverImage{
           asset->{url}
         },
-        content[]{
-          ...,
-          articles[] -> {
-            ...,
-            mainImage{
-              asset->{url}
-            }
-          }
-        }
+        content
       }
     `
-    return client.fetch(query, {id}).catch(err => {
-      throw new IssueStoreError(err)
-    })
+    return client
+      .fetch(query, {id})
+      .then(loadArticles)
+      .catch(err => {
+        throw new IssueStoreError(err)
+      })
   }
 }

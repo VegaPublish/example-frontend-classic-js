@@ -14,9 +14,11 @@ exports.createStoreError = storeName => {
     this.name = `${storeName}Error`
     this.statusCode = originalError.statusCode
     this.message = `An error occured in ${storeName}`
-    this.query = originalError.response.body.error.query
+    this.query =
+      originalError.response && originalError.response.body.error.query
     this.storeName = storeName
-    this.description = originalError.response.body.error.description
+    this.description =
+      originalError.response && originalError.response.body.error.description
   }
   util.inherits(error, Error)
   return error

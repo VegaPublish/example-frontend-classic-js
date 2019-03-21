@@ -1,0 +1,12 @@
+.issues-page {
+
+}
+
+.issues-page h2 {
+  border-bottom: 1px solid #000
+}
+
+.issues-page ul li a {
+  font-family: 'Playfair Display';
+  color: #26a69a;
+}
