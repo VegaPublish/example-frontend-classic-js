@@ -1,8 +1,6 @@
 # example-frontend-classic-js
 
-This is still work in progress!
-
-An example frontend for Vega implemented as a classic Node.js web app without any fancy stuff.
+An very basic example frontend for Vega implemented as a classic Node.js web app without any fancy stuff.
 
 The idea is to provide a simple codebase where only basic knowledge to Javascript and HTML is needed to customize and get a journal up and running in no time.
 
