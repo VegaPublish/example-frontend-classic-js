@@ -6,7 +6,7 @@ module.exports = {
     title: 'Example app'
   },
   lyra: {
-    projectId: '',
-    dataset: ''
+    apiHost: '', // URL to Saga endpoint
+    dataset: ''  // Public dataset (same as Venue dataset name suffixed with "--pub"
   }
 }
